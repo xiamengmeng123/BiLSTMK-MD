@@ -1,0 +1,71 @@
+{
+  "hidden_size": {
+    "individual": 0.004289896724787104,
+    "total": 0.004289896724787104
+  },
+  "layers": {
+    "individual": 0.003250825004904136,
+    "total": 0.003250825004904136
+  },
+  "dropout": {
+    "individual": 0.14676250119844791,
+    "total": 0.14676250119844791
+  },
+  "lr_log": {
+    "individual": 0.1574847852227303,
+    "total": 0.1574847852227303
+  },
+  "batch_size": {
+    "individual": 0.005217663067898577,
+    "total": 0.005217663067898577
+  },
+  "sequence_length": {
+    "individual": 0.005129071743684481,
+    "total": 0.005129071743684481
+  },
+  "hidden_size_layers": {
+    "interaction": 0.00031044782100160984
+  },
+  "hidden_size_dropout": {
+    "interaction": 0.01721903505509589
+  },
+  "hidden_size_lr_log": {
+    "interaction": 0.01795042907319201
+  },
+  "hidden_size_batch_size": {
+    "interaction": 0.0017176352808105368
+  },
+  "hidden_size_sequence_length": {
+    "interaction": 0.0008018393168758292
+  },
+  "layers_dropout": {
+    "interaction": 0.02136084643832181
+  },
+  "layers_lr_log": {
+    "interaction": 0.02341263945851227
+  },
+  "layers_batch_size": {
+    "interaction": 0.0008061029244024852
+  },
+  "layers_sequence_length": {
+    "interaction": 0.0014518022080108827
+  },
+  "dropout_lr_log": {
+    "interaction": 0.2337060218233329
+  },
+  "dropout_batch_size": {
+    "interaction": 0.03147723873592835
+  },
+  "dropout_sequence_length": {
+    "interaction": 0.04586135277072149
+  },
+  "lr_log_batch_size": {
+    "interaction": 0.020407767484697775
+  },
+  "lr_log_sequence_length": {
+    "interaction": 0.048531909574472266
+  },
+  "batch_size_sequence_length": {
+    "interaction": 0.0010865549374885779
+  }
+}

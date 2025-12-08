@@ -1,0 +1,38 @@
+# This file was created Mon Sep  1 16:56:45 2025
+# Created by:
+#                       :-) GROMACS - gmx bar, 2019.6 (-:
+# 
+# Executable:   /fs1/software/gromacs/2019.6-sp-icc19.1-IMPI2019.8/bin/gmx_mpi
+# Data prefix:  /fs1/software/gromacs/2019.6-sp-icc19.1-IMPI2019.8
+# Working dir:  /fs1/home/chengkun_wu/mmx/LSTM/torch_LSTM_predict-FEP/data/prediction/CH4
+# Command line:
+#   gmx_mpi bar -f md0_prediction.xvg md1_prediction.xvg md2_prediction.xvg md3_prediction.xvg md4_prediction.xvg md5_prediction.xvg md6_prediction.xvg md7_prediction.xvg md8_prediction.xvg md9_prediction.xvg md10_prediction.xvg md11_prediction.xvg md12_prediction.xvg md13_prediction.xvg md14_prediction.xvg md15_prediction.xvg md16_prediction.xvg md17_prediction.xvg md18_prediction.xvg md19_prediction.xvg md20_prediction.xvg -o -oi -oh
+# gmx bar is part of G R O M A C S:
+#
+# Gyas ROwers Mature At Cryogenic Speed
+#
+@    title "Free energy integral"
+@    xaxis  label "\xl\f{}"
+@    yaxis  label "\xD\f{}G (kT)"
+@TYPE xy
+     0  0.00
+     1  0.08
+     2  0.16
+     3  0.22
+     4  0.25
+     5  0.26
+     6  0.25
+     7  0.23
+     8  0.17
+     9  0.08
+    10 -0.08
+    11 -0.30
+    12 -0.62
+    13 -1.07
+    14 -1.63
+    15 -2.21
+    16 -2.75
+    17 -3.16
+    18 -3.44
+    19 -3.60
+    20 -3.65
