@@ -253,25 +253,25 @@ class lstm(nn.Module): # 定义一个名为lstm的类，继承自nn.Module
 #         output = self.fc(context)  # (batch, output_size)
 #         return output
 
-## LSTM+MLP
+
+####LSTM+MLP层
 # class lstm(nn.Module):
-#     def __init__(self, 
-#                  input_size=7, 
+#     def __init__(self,
+#                  input_size=7,
 #                  hidden_size=64,
 #                  num_layers=1,
 #                  output_size=7,
 #                  dropout=0.1,
 #                  bidirectional=True,
 #                  batch_first=True,
-#                  mlp_hidden_dims=[256,128, 64]):
+#                  mlp_hidden_dims=[256, 128, 64]):   # 你想要的隐藏维度
 #         super(lstm, self).__init__()
-        
-#         # LSTM参数设置
+
 #         self.bidirectional = bidirectional
 #         self.num_directions = 2 if bidirectional else 1
 #         self.hidden_size = hidden_size
-        
-#         # LSTM层
+
+#         # LSTM 层
 #         self.lstm = nn.LSTM(
 #             input_size=input_size,
 #             hidden_size=hidden_size,
@@ -280,13 +280,14 @@ class lstm(nn.Module): # 定义一个名为lstm的类，继承自nn.Module
 #             bidirectional=bidirectional,
 #             dropout=dropout if num_layers > 1 else 0
 #         )
-        
-#         # 计算MLP输入维度
-#         mlp_input_dim = hidden_size * self.num_directions
-        
-#         # 构建MLP网络
+
+#         # 注意力层：输入维度要匹配 lstm_out 的最后一维
+#         lstm_out_dim = hidden_size * self.num_directions
+#         self.attention = Attention(lstm_out_dim)
+
+#         # MLP：输入维度要匹配 attention 输出 context 的维度 (= lstm_out_dim)
 #         mlp_layers = []
-#         prev_dim = mlp_input_dim
+#         prev_dim = lstm_out_dim
 #         for dim in mlp_hidden_dims:
 #             mlp_layers.extend([
 #                 nn.Linear(prev_dim, dim),
@@ -295,26 +296,16 @@ class lstm(nn.Module): # 定义一个名为lstm的类，继承自nn.Module
 #                 nn.Dropout(dropout)
 #             ])
 #             prev_dim = dim
-        
-#         # 最终输出层
 #         mlp_layers.append(nn.Linear(prev_dim, output_size))
-        
-#         # 组合MLP模块
 #         self.mlp = nn.Sequential(*mlp_layers)
 
 #     def forward(self, x):
-#         # LSTM前向传播
-#         # x shape: (batch_size, seq_len, input_size)
-#         lstm_out, (h_n, c_n) = self.lstm(x)
-        
-#         # 获取最终隐藏状态
-#         if self.bidirectional:
-#             # 拼接最后两个方向的隐藏状态
-#             hidden = torch.cat((h_n[-2], h_n[-1]), dim=1)  # (batch_size, hidden_size*2)
-#         else:
-#             hidden = h_n[-1]  # (batch_size, hidden_size)
-        
-#         # MLP前向传播
-#         output = self.mlp(hidden)  # (batch_size, output_size)
-        
+#         # lstm_out: (batch, seq_len, hidden_size*num_directions)
+#         lstm_out, _ = self.lstm(x)
+
+#         # context: (batch, hidden_size*num_directions)
+#         context = self.attention(lstm_out)
+
+#         # output: (batch, output_size)
+#         output = self.mlp(context)
 #         return output
